@@ -1,0 +1,15 @@
+<%if @shingle.present? %>
+  <div class='container'> 
+   <%= link_to('MAIN PAGE',shingle_index_path(),:class=>'menu_zip') %>
+    <div class='row'>
+      <div id = "shingleReplace">
+        <div class="col-md-6">
+           <%= render partial: "image_gallery", locals: {shingle: @shingle,shingle_active:@shingle_active} %>         
+        </div>
+        <div class="col-md-4">
+           <%= render partial: "shingle_dropdown", locals: {shingle: @shingle,all_shingles:@all_shingles,zip:@zip} %>   
+        </div>
+      </div>
+    </div>
+  </div>
+<% end %>

@@ -1,0 +1,15 @@
+
+
+<div class= "container">
+  <div class= "row">
+  <% if flash[:error] %>
+        <p class="error"><%= flash[:error] %></p>
+  <% end %>
+  <%= form_tag shingle_index_path(), :method=>:get,:class => 'form-inline zip-mgn' do %>
+      
+       <%= label_tag "zip","Zip Code" %>
+       <%= text_field_tag "zip",nil,:placeholder=> "Enter Zip Code ", :class=>"form-control" ,:required=> true%>  
+       <%= submit_tag "Submit", :name=>nil,:class=> "btn btn-primary" %> 
+  <% end %>
+  </div>
+</div>

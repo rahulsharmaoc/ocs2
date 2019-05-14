@@ -1,0 +1,17 @@
+<%if all_shingles.present? %> 
+<%= form_tag shingle_index_path(),:method=>:get,:id=> 'shingleFrm'  do %>
+    <div class="form-group"> 
+           <%if zip.present? %> 
+              <%= hidden_field_tag 'zip',zip %>   
+            <% end %>
+            <%= label_tag(:shingle_line, "SHINGLE LINE:") %>
+            <%= select_tag("shingle", options_for_select(all_shingles.map {|name| [name[:name],name[:uid]]},shingle[:uid]),
+            class: 'form-control',
+            id: 'shingles_dropdown')%>      
+    </div>
+    <% end %>
+    <div class="dyn-name">
+       <span id = "shingle_group_name" uid-data="<%= shingle[:uid] %>"><%= shingle[:name].upcase %></span>
+       <span id="shingleName"></span>
+    </div>
+<% end %>
